@@ -26,17 +26,12 @@
         </div>
         <div class="mt-2">
             @foreach ($todos as $todo)
-                <div @class([
-                    'py-4 flex items-center border-b border-gray-300 px-3',
-                    $todo->completed ? bg - green - 200 : ' ',
-                ])>
+                <div class="py-4 flex items-center border-b border-gray-300 px-3 @class(['bg-green-200' => $todo->completed])">
                     <div class="flex-1 pr-8">
                         <h3 class="text-lg font-semibold">
                             {{ $todo->title }}
-
                         </h3>
                         <p class="text-gray-500">{{ $todo->description }}</p>
-
                     </div>
                     <div class="flex space-x-3">
                         <form method="POST" action="/{{ $todo->id }}">
@@ -45,7 +40,6 @@
                             {{-- add heroicons here --}}
                             <button class="py-2 px-2 bg-green-500 text-white rounded-xl">
                                 check
-
                             </button>
                         </form>
                         <form method="POST" action="/{{ $todo->id }}">
@@ -53,13 +47,12 @@
                             @method('DELETE')
                             <button class="py-2 px-2 bg-red-500 text-white rounded-xl">
                                 delete
-
                             </button>
                         </form>
-
                     </div>
                 </div>
             @endforeach
+
 
         </div>
     </div>
